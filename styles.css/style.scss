@@ -1,0 +1,85 @@
+@import "_mixins.scss";
+
+html,
+body {
+	@include displayFlex();
+	background: #27272a;
+	height: 100%;
+	width: 100%;
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+.container {
+	display: grid;
+	grid-template-rows: 10% 1fr;
+	background: #3f3f46;
+	border-radius: 5px;
+	height: 90%;
+	width: 80%;
+	.top-bar {
+		@include displayFlex();
+		.add-book {
+			@include displayFlex();
+			background: #22c55e;
+			border-radius: 5px;
+			color: whitesmoke;
+			font-size: 20px;
+			height: 70%;
+			width: 10%;
+			cursor: pointer;
+		}
+	}
+	.book-container {
+		display: grid;
+		grid-template-columns: repeat(6, 1fr);
+		grid-template-rows: 1fr 1fr;
+		gap: 1%;
+		padding: 2%;
+		.book {
+			background-color: slategray;
+		}
+	}
+}
+
+.input-window {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 15% repeat(4, 1fr);
+	position: absolute;
+	box-sizing: border-box;
+	background: #f4f4f5;
+	border-radius: 5px;
+	height: 30%;
+	width: 20%;
+	padding: 0 2% 2% 2%;
+	gap: 5%;
+	#close-btn {
+		@include displayFlex();
+		grid-area: 1 / 2 / 2 / -1;
+		justify-self: end;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 20px;
+		height: 20px;
+		width: 20px;
+		margin: 8% -20% 5% 0;
+		cursor: pointer;
+	}
+	#title-container {
+		@include flexColumn();
+		grid-area: 2 / 1 / 3 / -1;
+	}
+	#author-container {
+		@include flexColumn();
+		grid-area: 3 / 1 / 4 / -1;
+	}
+	#pages-container {
+		@include flexColumn();
+		grid-area: 4 / 1 / 5 / -1;
+	}
+	#read-container {
+		grid-area: 5 / 1 / 6 / 2;
+	}
+	#unread-container {
+		grid-area: 5 / 2 / 6 / -1;
+	}
+}
